@@ -52,4 +52,23 @@ public class BinarySearchTest {
         SearchResult searchResult = BinarySearch.search(key, tab);
         assertThat(searchResult.getPosition(), is(-1));
     }
+
+    @Test public void bigIntegersInTab() {
+        int[] tab = {Integer.MAX_VALUE-3, Integer.MAX_VALUE-2, Integer.MAX_VALUE};
+        int key = Integer.MAX_VALUE;
+        SearchResult searchResult = BinarySearch.search(key, tab);
+        assertThat(searchResult.getPosition(), is(3));
+    }
+
+    @Test public void emptyList() {
+        int[] tab = {};
+        int key = Integer.MAX_VALUE;
+        SearchResult searchResult = BinarySearch.search(key, tab);
+        assertTrue(searchResult.getPosition()==-1&&searchResult.isFound()==false);
+    }
+    @Test(expected = NullPointerException.class) public void nullTab() {
+        int[] tab = null;
+        int key = Integer.MAX_VALUE;
+        SearchResult searchResult = BinarySearch.search(key, tab);
+    }
 }
