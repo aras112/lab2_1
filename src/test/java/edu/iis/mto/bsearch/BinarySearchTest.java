@@ -80,7 +80,7 @@ public class BinarySearchTest
     @Test
     public void minIntegersInTab()
         {
-        int[] tab = {Integer.MIN_VALUE, Integer.MIN_VALUE + 2, Integer.MIN_VALUE+3};
+        int[] tab = {Integer.MIN_VALUE, Integer.MIN_VALUE + 2, Integer.MIN_VALUE + 3};
         int key = Integer.MIN_VALUE;
         SearchResult searchResult = BinarySearch.search(key, tab);
         assertThat(searchResult.getPosition(), is(1));
@@ -116,6 +116,22 @@ public class BinarySearchTest
         {
         int[] tab = null;
         Integer key = null;
+        SearchResult searchResult = BinarySearch.search(key, tab);
+        }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void noOrderedList()
+        {
+        int[] tab = {3,2,3};
+        Integer key = 2;
+        SearchResult searchResult = BinarySearch.search(key, tab);
+        }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void inverseOrderedList()
+        {
+        int[] tab = {3, 2, 1};
+        Integer key = 2;
         SearchResult searchResult = BinarySearch.search(key, tab);
         }
 
