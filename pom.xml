@@ -9,7 +9,12 @@
 		<jdk.version>1.8</jdk.version>
 		<junit.version>4.12</junit.version>
 	</properties>
-  <dependencies>		
+  <dependencies>
+	  <dependency>
+		  <groupId>com.google.guava</groupId>
+		  <artifactId>guava</artifactId>
+		  <version>27.1-jre</version>
+	  </dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
